@@ -68,6 +68,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     'recipe[postgis]',
 
     'recipe[mapzen_localtiles::tile_packages]',
+    'recipe[osmosis]',
     'recipe[osm2pgsql]',
     'recipe[mapzen_localtiles::checkout]',
 

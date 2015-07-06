@@ -21,6 +21,7 @@ SITE
     gunicorn (1.2.0)
       python (>= 0.0.0)
     install_from (3.0.4)
+    java (1.31.0)
     metachef (3.0.4)
     ohai (2.0.1)
     openssl (4.0.0)
@@ -70,6 +71,16 @@ GIT
       ark (>= 0.0.0)
 
 GIT
+  remote: https://github.com/mapzen/chef-osmosis
+  ref: master
+  sha: 029df8c5a26beaa9b77079fa5ef7fdfcd5e2a839
+  specs:
+    osmosis (0.6.0)
+      apt (>= 0.0.0)
+      ark (>= 0.0.0)
+      java (>= 0.0.0)
+
+GIT
   remote: https://github.com/mapzen/chef-tilequeue
   ref: master
   sha: 572a764c757bf7132e8d9f45266546bc78de98cb
@@ -103,6 +114,7 @@ DEPENDENCIES
   git (>= 0)
   ohai (>= 0)
   osm2pgsql (>= 0)
+  osmosis (>= 0)
   postgis (>= 0)
   postgresql (>= 0)
   python (>= 0)
