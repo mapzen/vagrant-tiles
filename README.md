@@ -2,7 +2,7 @@
 
 This will set up a vagrant image with all tile components in a single vm.
 
-# Prerequisites
+## Prerequisites
 
 * vagrant
 * librarian-chef
