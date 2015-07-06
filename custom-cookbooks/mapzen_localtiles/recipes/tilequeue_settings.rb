@@ -1,4 +1,4 @@
-node.override[:tilequeue][:cfg_path] = "#{node[:path][:cfg]}/tilequeue"
+node.override[:tilequeue][:cfg_path] = "#{node[:path][:etc]}/tilequeue"
 node.override[:tilequeue][:seed][:log_dir] = "#{node[:path][:var]}/log/tilequeue"
 node.override[:tilequeue][:user][:user] = 'vagrant'
 node.override[:tilequeue][:tilediff][:script][:path] = "#{node[:path][:bin]}/tilequeue-tilediff.sh"
