@@ -1,4 +1,4 @@
-name             'mapzen_localtiles'
+name             'vagrant-tiles'
 maintainer       'mapzen'
 maintainer_email 'rob@mapzen.com'
 license          'All rights reserved'
@@ -8,4 +8,19 @@ version          '0.0.1'
 
 supports 'ubuntu'
 
+depends 'sudo'
+depends 'apt'
+depends 'ohai'
+depends 'git'
+depends 'python'
+
+depends 'postgresql'
+depends 'postgis'
 depends 'database'
+depends 'redis'
+# depends 'varnish'
+
+depends 'osm2pgsql'
+depends 'osmosis'
+depends 'tilestache'
+depends 'tilequeue'

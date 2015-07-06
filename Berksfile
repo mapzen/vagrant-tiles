@@ -1,4 +1,6 @@
-site 'http://community.opscode.com/api/v1'
+source "https://supermarket.getchef.com"
+
+metadata
 
 cookbook 'sudo'
 cookbook 'apt'
@@ -10,7 +12,7 @@ cookbook 'postgresql'
 cookbook 'postgis'
 cookbook 'database'
 cookbook 'redis'
-cookbook 'varnish'
+# cookbook 'varnish'
 
 cookbook 'osm2pgsql', github: 'mapzen/chef-osm2pgsql', ref: 'master'
 cookbook 'osmosis', github: 'mapzen/chef-osmosis', ref: 'master'
