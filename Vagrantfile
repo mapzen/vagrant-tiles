@@ -76,8 +76,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     'recipe[mapzen_localtiles::setup_database]',
 
     'recipe[redis::install_from_package]',
-    # 'recipe[redis::client]',
-    # 'recipe[redis::server]',
 
     'recipe[tilestache::pip_requirements]',
     'recipe[mapzen_localtiles::tilestache_cfg]',
