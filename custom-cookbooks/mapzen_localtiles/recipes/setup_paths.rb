@@ -5,7 +5,7 @@ node[:path].each do |k, v|
 end
 
 # implicit required directories under /.../var
-%w(log pbf).each do |d|
+%w(log pbf osmosis expired-tiles).each do |d|
   directory "#{node[:path][:var]}/#{d}"
 end
 

@@ -1,0 +1,6 @@
+# The URL of the directory containing change files.
+baseUrl=http://planet.openstreetmap.org/replication/<%= node[:update][:frequency] %>/
+
+# Defines the maximum time interval in seconds to download in a single invocation.
+# Setting to 0 disables this feature.
+maxInterval = <%= node[:update][:max_seconds] %>

@@ -82,9 +82,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     'recipe[tilestache::pip_requirements]',
     'recipe[mapzen_localtiles::tilestache_cfg]',
 
-    'recipe[mapzen_localtiles::tilequeue_settings]',
     'recipe[tilequeue::config]',
     'recipe[tilequeue::install]',
+
+    'recipe[mapzen_localtiles::osmupdate]',
 
     # 'recipe[varnish]',
   ]
