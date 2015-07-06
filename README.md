@@ -5,7 +5,7 @@ This will set up a vagrant image with all tile components in a single vm.
 ## Prerequisites
 
 * vagrant
-* librarian-chef
+* vagrant omnibus plugin (`vagrant plugin install vagrant-omnibus`)
 
 ## Configuration
 
@@ -24,7 +24,4 @@ The Vagrantfile also has configuration to use 5 gigabytes of memory and 2 proces
 
 ## Installation
 
-```
-librarian-chef install
-vagrant up
-```
+    vagrant up
