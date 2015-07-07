@@ -41,8 +41,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # maybe we should just have a single path and implicitly put everything underneath that?
     'path' => {
       'tmp' => '/var/vagrant/tmp',
-      'postgresql' => '/var/vagrant/postgresql',
-      'tiles' => '/var/vagrant/tiles',
       'src' => '/var/vagrant/src',
       'etc' => '/var/vagrant/etc',
       'bin' => '/var/vagrant/bin',
@@ -54,9 +52,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     },
   }
   chef.run_list = [
+    'recipe[ohai]',
     'recipe[sudo]',
     'recipe[apt]',
-    'recipe[ohai]',
     'recipe[git]',
     'recipe[python]',
 
@@ -81,8 +79,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     'recipe[tilestache::pip_requirements]',
     'recipe[vagrant-tiles::tilestache_cfg]',
 
-    'recipe[tilequeue::config]',
-    'recipe[tilequeue::install]',
+    'recipe[tilequeue::processor]',
+    'recipe[tilequeue::tilediff]',
 
     'recipe[vagrant-tiles::osmupdate]',
 

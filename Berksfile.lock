@@ -18,7 +18,7 @@ DEPENDENCIES
   sudo
   tilequeue
     git: git://github.com/mapzen/chef-tilequeue.git
-    revision: 572a764c757bf7132e8d9f45266546bc78de98cb
+    revision: ad1628fb2af17e4ebc8fcb5c490c69f2b366ad53
     ref: master
   tilestache
     git: git://github.com/mapzen/chef-tilestache.git
