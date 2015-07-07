@@ -81,6 +81,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     'recipe[tilequeue::processor]',
     'recipe[tilequeue::tilediff]',
+    'recipe[vagrant-tiles::seed]',
 
     'recipe[vagrant-tiles::osmupdate]',
 
