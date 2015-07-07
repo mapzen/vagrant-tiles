@@ -29,7 +29,7 @@ if ! getlock "$PIDFILE"; then
   exit 3
 fi
 
-if ! /usr/local/bin/osmosis --read-replication-interval workingDirectory=<%= node[:path][:var] %>/osmosis --simplify-change --write-xml-change "$OSM_DIFF" 1>&2 2> "<%= node[:path][:var] %>/log/osmosis.log"; then
+if ! /usr/local/bin/osmosis --read-replication-interval workingDirectory=<%= node[:path][:var] %>/osmosis --simplify-change --write-xml-change "$OSM_DIFF" 1>&2 2>> "<%= node[:path][:var] %>/log/osmosis.log"; then
   echo osmosis error
   exit 1
 fi
