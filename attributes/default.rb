@@ -12,8 +12,6 @@ default[:pg][:conn_info] = {
 default[:git][:vector_datasource][:url] = 'https://github.com/mapzen/vector-datasource.git'
 default[:git][:vector_datasource][:branch] = 'master'
 
-default[:nginx][:port] = 8000
-
 # frequency can be minute, hour, day
 default[:update][:frequency] = 'minute'
 default[:update][:max_seconds] = 3600
@@ -68,3 +66,7 @@ node.override[:tilestache][:gunicorn][:workers] = 1
 node.override[:tilestache][:user] = 'vagrant'
 node.override[:tilestache][:cfg_path] = "#{node[:path][:etc]}/tilestache"
 node.override[:tilestache][:cfg_file] = "tilestache.cfg"
+
+node.override[:nginx][:port] = 8080
+node.override[:nginx][:default_site_enabled] = false
+default[:varnish][:port] = 80

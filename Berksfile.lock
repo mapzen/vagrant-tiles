@@ -2,6 +2,7 @@ DEPENDENCIES
   apt
   database
   git
+  nginx
   ohai
   osm2pgsql
     git: git://github.com/mapzen/chef-osm2pgsql.git
@@ -35,6 +36,8 @@ GRAPH
   ark (0.9.0)
     7-zip (>= 0.0.0)
     windows (>= 0.0.0)
+  bluepill (2.3.1)
+    rsyslog (>= 0.0.0)
   build-essential (2.2.3)
   chef-sugar (3.1.1)
   chef_handler (1.2.0)
@@ -51,6 +54,13 @@ GRAPH
   install_from (3.0.4)
   java (1.31.0)
   metachef (3.0.4)
+  nginx (2.7.6)
+    apt (~> 2.2)
+    bluepill (~> 2.3)
+    build-essential (~> 2.0)
+    ohai (~> 2.0)
+    runit (~> 1.2)
+    yum-epel (~> 0.3)
   ohai (2.0.1)
   openssl (4.0.0)
     chef-sugar (>= 0.0.0)
@@ -77,6 +87,7 @@ GRAPH
     install_from (>= 0.0.0)
     metachef (>= 0.0.0)
     runit (>= 0.0.0)
+  rsyslog (2.0.0)
   runit (1.7.2)
     packagecloud (>= 0.0.0)
   sudo (2.7.1)
@@ -104,6 +115,7 @@ GRAPH
     apt (>= 0.0.0)
     database (>= 0.0.0)
     git (>= 0.0.0)
+    nginx (>= 0.0.0)
     ohai (>= 0.0.0)
     osm2pgsql (>= 0.0.0)
     osmosis (>= 0.0.0)

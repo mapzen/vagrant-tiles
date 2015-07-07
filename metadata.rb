@@ -18,7 +18,7 @@ depends 'postgresql'
 depends 'postgis'
 depends 'database'
 depends 'redis'
-# depends 'varnish'
+depends 'nginx'
 
 depends 'osm2pgsql'
 depends 'osmosis'

@@ -12,7 +12,7 @@ cookbook 'postgresql'
 cookbook 'postgis'
 cookbook 'database'
 cookbook 'redis'
-# cookbook 'varnish'
+cookbook 'nginx'
 
 cookbook 'osm2pgsql', github: 'mapzen/chef-osm2pgsql', ref: 'master'
 cookbook 'osmosis', github: 'mapzen/chef-osmosis', ref: 'master'
