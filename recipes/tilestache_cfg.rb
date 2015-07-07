@@ -5,5 +5,5 @@ end
 
 execute 'generate tilestache cfg' do
   command "#{node[:path][:bin]}/generate_tilestache_cfg.rb"
-  creates "#{node[:path][:etc]}/tilestache.cfg"
+  creates "#{node[:path][:etc]}/tilestache/tilestache.cfg"
 end

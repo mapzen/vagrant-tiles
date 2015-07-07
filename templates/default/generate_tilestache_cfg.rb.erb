@@ -3,7 +3,7 @@
 require 'json'
 
 cfg_input_path = "<%= node[:path][:src] %>/vector-datasource/tilestache.cfg"
-cfg_output_path = "<%= node[:path][:etc] %>/tilestache.cfg"
+cfg_output_path = "<%= node[:path][:etc] %>/tilestache/tilestache.cfg"
 
 json = File.read(cfg_input_path)
 data = JSON.parse(json)

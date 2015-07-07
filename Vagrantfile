@@ -79,6 +79,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     'recipe[tilestache::pip_requirements]',
     'recipe[vagrant-tiles::tilestache_cfg]',
 
+    'recipe[tilestache::gunicorn]',
+    'recipe[tilestache::runit]',
+
     'recipe[tilequeue::processor]',
     'recipe[tilequeue::tilediff]',
     'recipe[vagrant-tiles::seed]',
