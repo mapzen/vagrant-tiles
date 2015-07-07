@@ -86,7 +86,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     'recipe[vagrant-tiles::osmupdate]',
 
-    # 'recipe[varnish]',
+    'recipe[vagrant-tiles::varnish]',
   ]
 
   end
