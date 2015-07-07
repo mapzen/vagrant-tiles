@@ -8,5 +8,3 @@ end
 %w(log pbf osmosis expired-tiles tiles).each do |d|
   directory "#{node[:path][:var]}/#{d}"
 end
-
-directory "#{node[:path][:var]}/log/tilequeue"
