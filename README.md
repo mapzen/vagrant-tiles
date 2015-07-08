@@ -25,3 +25,14 @@ The Vagrantfile also has configuration to use 5 gigabytes of memory and 2 proces
 ## Installation
 
     vagrant up
+
+## Components running
+
+* postgresql, will contain osm data based off of configured pbf file
+* redis, serves as work queue and tracks tiles of interest
+* minutely osmosis and osm2pgsql cron, pulls data from osm planet minutely diffs
+* minutely tilequeue intersect, consumes osm2pgsql expired tiles and pushes work to redis
+* tilequeue process, pulls work from redis and writes tiles to .../var/tiles
+* tilestache service, runs on port 8000
+* nginx used as cache over filesystem tiles at .../var/tiles, runs on port 8080
+* varnish, will issue subrequests to nginx first, and on 404, will issue subrequest to tilestache
