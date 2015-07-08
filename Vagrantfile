@@ -71,7 +71,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     'recipe[osm2pgsql]',
     'recipe[vagrant-tiles::checkout]',
 
-    # conditionally runs create_database, download_pbf, and load_db_data recipes
     'recipe[vagrant-tiles::setup_database]',
 
     'recipe[redis::install_from_package]',
