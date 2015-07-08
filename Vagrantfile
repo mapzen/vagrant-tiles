@@ -50,6 +50,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       'name' => 'nyc.pbf',
       'url' => 'https://s3.amazonaws.com/metro-extracts.mapzen.com/new-york_new-york.osm.pbf',
     },
+    # will seed these tiles on initial run
+    'tilequeue' => {
+      'tiles' => {
+        'custom' => {
+          'zoom_start' => 11,
+          'zoom_until' => 15,
+          'bboxes' => [
+            [-74.501, 40.345, -73.226, 41.097],
+          ]
+        }
+      }
+    },
   }
   chef.run_list = [
     'recipe[ohai]',
