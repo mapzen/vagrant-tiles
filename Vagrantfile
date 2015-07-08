@@ -77,6 +77,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     'recipe[redis::install_from_package]',
 
     'recipe[tilestache::pip_requirements]',
+    'recipe[vagrant-tiles::additional_tilestache_pip_packages]',
     'recipe[vagrant-tiles::tilestache_cfg]',
 
     'recipe[tilestache::gunicorn]',

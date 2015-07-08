@@ -21,6 +21,14 @@ data["layers"].each do |key, val|
   data["layers"][key] = val
 end
 
+data['cache'] = {
+  'class' => 'tileglue.make_tilestache_filesystem_cache',
+  'kwargs' => {
+    'basepath' => '<%= "#{node[:path][:var]}/tiles" %>',
+    'redis_host' => 'localhost',
+  }
+}
+
 File.open(cfg_output_path, 'w') do |file|
   file.write(JSON.pretty_generate(data))
   file.write("\n")
