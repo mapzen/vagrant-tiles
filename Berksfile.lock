@@ -16,6 +16,7 @@ DEPENDENCIES
   postgresql
   python
   redis
+  runit (= 1.5.10)
   sudo
   tilequeue
     git: git://github.com/mapzen/chef-tilequeue.git
@@ -71,7 +72,6 @@ GRAPH
     apt (>= 0.0.0)
     ark (>= 0.0.0)
     java (>= 0.0.0)
-  packagecloud (0.0.19)
   postgis (0.3.0)
     apt (>= 0.0.0)
     postgresql (>= 0.0.0)
@@ -88,8 +88,10 @@ GRAPH
     metachef (>= 0.0.0)
     runit (>= 0.0.0)
   rsyslog (2.0.0)
-  runit (1.7.2)
-    packagecloud (>= 0.0.0)
+  runit (1.5.10)
+    build-essential (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
   sudo (2.7.1)
   supervisor (0.4.12)
     python (>= 0.0.0)

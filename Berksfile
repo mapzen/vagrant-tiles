@@ -13,6 +13,7 @@ cookbook 'postgis'
 cookbook 'database'
 cookbook 'redis'
 cookbook 'nginx'
+cookbook 'runit', '= 1.5.10'
 
 cookbook 'osm2pgsql', github: 'mapzen/chef-osm2pgsql', ref: 'master'
 cookbook 'osmosis', github: 'mapzen/chef-osmosis', ref: 'master'
