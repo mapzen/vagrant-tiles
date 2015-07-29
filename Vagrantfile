@@ -38,14 +38,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       #   'data_directory' => '/var/vagrant/postgresql'
       # }
     },
-    # maybe we should just have a single path and implicitly put everything underneath that?
-    'path' => {
-      'tmp' => '/var/vagrant/tmp',
-      'src' => '/var/vagrant/src',
-      'etc' => '/var/vagrant/etc',
-      'bin' => '/var/vagrant/bin',
-      'var' => '/var/vagrant/var',
-    },
+    'path' => '/var/vagrant',
     'pbf' => {
       'name' => 'nyc.pbf',
       'url' => 'https://s3.amazonaws.com/metro-extracts.mapzen.com/new-york_new-york.osm.pbf',

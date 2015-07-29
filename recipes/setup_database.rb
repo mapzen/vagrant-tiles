@@ -1,4 +1,4 @@
-unless File.exists?("#{node[:path][:var]}/did_setup_database")
+unless File.exists?("#{node[:path]}/var/did_setup_database")
 
   include_recipe 'vagrant-tiles::create_database'
 
@@ -8,7 +8,7 @@ unless File.exists?("#{node[:path][:var]}/did_setup_database")
   include_recipe 'vagrant-tiles::load_db_data'
 
   # create file to prevent setting up database on future runs
-  file "#{node[:path][:var]}/did_setup_database" do
+  file "#{node[:path]}/var/did_setup_database" do
     action :touch
   end
 
