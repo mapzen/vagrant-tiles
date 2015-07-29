@@ -19,13 +19,18 @@ default[:update][:cron][:minute] = '*'
 default[:update][:cron][:hour] = '*'
 default[:update][:cron][:day] = '*'
 
-# TODO hard coded for now, should do some date arithmetic to figure out last sunday
-default[:update][:osmosis_state][:year] = '2015'
-default[:update][:osmosis_state][:month] = '7'
-default[:update][:osmosis_state][:day] = '5'
-default[:update][:osmosis_state][:hour] = '4'
-default[:update][:osmosis_state][:minute] = '0'
-default[:update][:osmosis_state][:second] = '0'
+require 'date'
+date = Date.today
+# get back to last saturday, which is when metro extracts run
+while date.wday != 6 do
+  date = date - 1
+end
+default[:update][:osmosis_state][:year] = date.year
+default[:update][:osmosis_state][:month] = date.month
+default[:update][:osmosis_state][:day] = date.day
+default[:update][:osmosis_state][:hour] = 4
+default[:update][:osmosis_state][:minute] = 0
+default[:update][:osmosis_state][:second] = 0
 
 node.override[:tilequeue][:cfg_path] = "#{node[:path]}/etc/tilequeue"
 node.override[:tilequeue][:seed][:log_dir] = "#{node[:path]}/var/log/tilequeue"
