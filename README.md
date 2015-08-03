@@ -1,6 +1,6 @@
 # vagrant-tiles
 
-This will set up a vagrant image with all tile components in a single vm.
+This will set up a vagrant image with all the tile components that the Mapzen vector tile service uses running in a single vm. This is not meant to be production ready, but merely a demonstration of how the various pieces of an OpenStreetMap vector tile service can fit together.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ sudo mkdir /var/vagrant
 sudo chown `whoami`:`whoami` /var/vagrant
 ```
 
-The Vagrantfile also has configuration to use 5 gigabytes of memory and 2 processors.
+The Vagrantfile also has configuration to use 5 gigabytes of memory and 2 processors. This might not all be needed, but if you have less you may run out of memory at some point in the process.
 
 ## Installation
 
