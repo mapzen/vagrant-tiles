@@ -59,19 +59,20 @@ node.override[:tilequeue][:tiles][:should_add_to_tiles_of_interest] = true
 node.override[:tilequeue][:tiles][:expired_location] = "#{node[:path]}/var/expired-tiles"
 node.override[:tilequeue][:tiles][:parent_zoom_until] = 11
 node.override[:tilequeue][:tilestache][:formats] = %w(json topojson vtm mvt)
-node.override[:tilequeue][:tilestache][:config] = "#{node[:path]}/etc/tilestache/tilestache.cfg"
+node.override[:tilequeue][:tilestache][:config] = "#{node[:path]}/opt/vector-datasource/tilestache.cfg"
 node.override[:tilequeue][:logging][:config] = "#{node[:path]}/etc/tilequeue/logging.conf"
 node.override[:tilequeue][:postgresql][:host] = 'localhost'
 node.override[:tilequeue][:postgresql][:dbnames] = [node[:pg][:dbname]]
 node.override[:tilequeue][:postgresql][:user] = node[:pg][:user]
 node.override[:tilequeue][:postgresql][:password] = node[:pg][:password]
 
-node.override[:tilestache][:gunicorn][:cfgbasedir] = "#{node[:path]}/etc/tilestache"
-node.override[:tilestache][:gunicorn][:workers] = 1
-node.override[:tilestache][:user] = 'vagrant'
-node.override[:tilestache][:cfg_path] = "#{node[:path]}/etc/tilestache"
-node.override[:tilestache][:cfg_file] = "tilestache.cfg"
-
 node.override[:nginx][:port] = 8080
 node.override[:nginx][:default_site_enabled] = false
+
 default[:varnish][:port] = 80
+
+node.override[:tileserver][:postgresql][:dbnames] = [node[:pg][:dbname]]
+node.override[:tileserver][:postgresql][:user] = node[:pg][:user]
+node.override[:tileserver][:postgresql][:password] = node[:pg][:password]
+default[:tileserver][:port] = 8000
+default[:tileserver][:tilejson][:path] = '/srv/www/tileserver'

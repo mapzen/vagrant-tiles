@@ -7,7 +7,7 @@ backend nginx_cache {
 
 backend tilestache {
   .host = "<%= node[:ipaddress] %>";
-  .port = "<%= node[:tilestache][:gunicorn][:port] %>";
+  .port = "<%= node[:tileserver][:port] %>";
 }
 
 sub vcl_recv {
