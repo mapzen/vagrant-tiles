@@ -12,8 +12,12 @@ end
 directory "#{node[:path]}/etc/tilestache"
 
 # to allow writing gunicorn.log file and pids
-%w(/var/log/tilestache /var/log/tilestache/pids).each do |d|
+%w(/var/log/tilestache /var/log/tilestache/pids /var/log/osm2pgsql /var/log/tilequeue /var/log/osmosis /var/run/osm2pgsql /var/run/tilequeue /var/osmosis).each do |d|
   directory d do
     owner 'vagrant'
   end
+end
+directory node[:tilequeue][:tiles][:expired_location] do
+  owner 'vagrant'
+  recursive true
 end

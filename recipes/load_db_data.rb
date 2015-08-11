@@ -15,7 +15,7 @@ end
 bash 'run-osm2pgsql-to-import-data' do
   code <<-EOH
     export PGPASSWORD='#{node[:pg][:password]}'
-    /usr/local/bin/osm2pgsql -U #{node[:pg][:user]} -d #{node[:pg][:dbname]} -H localhost --slim --hstore --cache 2048 --merc --prefix planet_osm --style #{node[:path]}/opt/vector-datasource/osm2pgsql.style --verbose --number-processes 1 #{node[:path]}/var/pbf/#{node[:pbf][:name]} 2>&1 >#{node[:path]}/var/log/osm2pgsql-initial-import.log
+    /usr/local/bin/osm2pgsql -U #{node[:pg][:user]} -d #{node[:pg][:dbname]} -H localhost --slim --hstore --cache 2048 --merc --prefix planet_osm --style #{node[:path]}/opt/vector-datasource/osm2pgsql.style --verbose --number-processes 1 #{node[:path]}/var/pbf/#{node[:pbf][:name]} 2>&1 >#{node[:path]}/var/log/osm2pgsql/osm-initial-import.log
   EOH
 end
 
