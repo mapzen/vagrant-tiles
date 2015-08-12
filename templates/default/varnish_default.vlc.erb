@@ -16,7 +16,6 @@ sub vcl_recv {
   } else {
     unset req.http.Accept-Encoding;
   }
-  set req.url = regsub(req.url, "^/osm", "");
 }
 
 sub vcl_backend_fetch {
