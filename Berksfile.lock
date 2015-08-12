@@ -20,11 +20,11 @@ DEPENDENCIES
   sudo
   tilequeue
     git: git://github.com/mapzen/chef-tilequeue.git
-    revision: ad1628fb2af17e4ebc8fcb5c490c69f2b366ad53
+    revision: f8f543763d156ef765afdd1033b16a163008a67d
     ref: master
-  tilestache
-    git: git://github.com/mapzen/chef-tilestache.git
-    revision: c8a77455e4ab484736483bd3efd4105a834792b7
+  tileserver
+    git: git://github.com/mapzen/chef-tileserver.git
+    revision: b3cdab915b70f0c4e04ba93c5c9a814d42e29001
     ref: master
   vagrant-tiles
     path: .
@@ -42,10 +42,10 @@ GRAPH
   build-essential (2.2.3)
   chef-sugar (3.1.1)
   chef_handler (1.2.0)
-  database (4.0.6)
+  database (4.0.8)
     postgresql (>= 1.0.0)
   dmg (2.2.2)
-  git (4.2.2)
+  git (4.3.3)
     build-essential (>= 0.0.0)
     dmg (>= 0.0.0)
     windows (>= 0.0.0)
@@ -53,7 +53,7 @@ GRAPH
   gunicorn (1.2.0)
     python (>= 0.0.0)
   install_from (3.0.4)
-  java (1.31.0)
+  java (1.35.0)
   metachef (3.0.4)
   nginx (2.7.6)
     apt (~> 2.2)
@@ -87,31 +87,25 @@ GRAPH
     install_from (>= 0.0.0)
     metachef (>= 0.0.0)
     runit (>= 0.0.0)
-  rsyslog (2.0.0)
+  rsyslog (2.1.0)
   runit (1.5.10)
     build-essential (>= 0.0.0)
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
-  sudo (2.7.1)
-  supervisor (0.4.12)
-    python (>= 0.0.0)
-  tilequeue (0.0.13)
+  sudo (2.7.2)
+  tilequeue (0.0.15)
     apt (>= 0.0.0)
     git (>= 0.0.0)
     python (>= 0.0.0)
     runit (>= 0.0.0)
     user (>= 0.0.0)
-  tilestache (0.17.4)
+  tileserver (0.0.1)
     apt (>= 0.0.0)
     git (>= 0.0.0)
     gunicorn (>= 0.0.0)
     python (>= 0.0.0)
     runit (>= 0.0.0)
-    supervisor (>= 0.0.0)
-    ulimit (>= 0.0.0)
     user (>= 0.0.0)
-    yum (>= 0.0.0)
-  ulimit (0.3.3)
   user (0.4.2)
   vagrant-tiles (0.0.1)
     apt (>= 0.0.0)
@@ -127,9 +121,9 @@ GRAPH
     redis (>= 0.0.0)
     sudo (>= 0.0.0)
     tilequeue (>= 0.0.0)
-    tilestache (>= 0.0.0)
-  windows (1.37.0)
+    tileserver (>= 0.0.0)
+  windows (1.38.1)
     chef_handler (>= 0.0.0)
-  yum (3.6.1)
+  yum (3.6.3)
   yum-epel (0.6.2)
     yum (~> 3.2)

@@ -22,5 +22,5 @@ depends 'nginx'
 
 depends 'osm2pgsql'
 depends 'osmosis'
-depends 'tilestache'
 depends 'tilequeue'
+depends 'tileserver'

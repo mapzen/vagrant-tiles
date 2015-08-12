@@ -1,6 +1,6 @@
 server {
   listen <%= node[:nginx][:port] %>;
   server_name <%= node[:ipaddress] %>;
-  rewrite ^/all/(.*) /$1;
+  rewrite ^/osm/all/(.*) /$1;
   root <%= node[:path] %>/var/tiles;
 }

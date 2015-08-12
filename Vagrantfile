@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vm.synced_folder '/var/vagrant', '/var/vagrant'
+  # config.vm.synced_folder '/var/vagrant', '/var'
 
   config.vm.provision 'chef_solo' do |chef|
   chef.json = {
@@ -38,7 +38,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       #   'data_directory' => '/var/vagrant/postgresql'
       # }
     },
-    'path' => '/var/vagrant',
+    # 'path' => '/var/vagrant',
+    'path' => '',
     'pbf' => {
       'name' => 'nyc.pbf',
       'url' => 'https://s3.amazonaws.com/metro-extracts.mapzen.com/new-york_new-york.osm.pbf',
@@ -80,18 +81,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     'recipe[redis::install_from_package]',
 
-    'recipe[tilestache::pip_requirements]',
-    'recipe[vagrant-tiles::additional_tilestache_pip_packages]',
-    'recipe[vagrant-tiles::tilestache_cfg]',
-
-    'recipe[tilestache::gunicorn]',
-    'recipe[tilestache::runit]',
-
     'recipe[tilequeue::processor]',
     'recipe[tilequeue::tilediff]',
     'recipe[vagrant-tiles::seed]',
 
     'recipe[vagrant-tiles::osmupdate]',
+
+    'recipe[tileserver]',
 
     'recipe[vagrant-tiles::nginx]',
     'recipe[vagrant-tiles::varnish]',

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PIDFILE=<%= node[:path] %>/var/osm-update.pid
+PIDFILE=<%= node[:path] %>/var/run/osm2pgsql/osm-update.pid
 
 OSM2PGSQL_PGOPTS="-U <%= node[:pg][:user] %> -d <%= node[:pg][:dbname] %> -H localhost"
 export PGPASSWORD='<%= node[:pg][:password] %>'
@@ -29,12 +29,12 @@ if ! getlock "$PIDFILE"; then
   exit 3
 fi
 
-if ! /usr/local/bin/osmosis --read-replication-interval workingDirectory=<%= node[:path] %>/var/osmosis --simplify-change --write-xml-change "$OSM_DIFF" 1>&2 2>> "<%= node[:path] %>/var/log/osmosis.log"; then
+if ! /usr/local/bin/osmosis --read-replication-interval workingDirectory=<%= node[:path] %>/var/osmosis --simplify-change --write-xml-change "$OSM_DIFF" 1>&2 2>> "<%= node[:path] %>/var/log/osmosis/osmosis.log"; then
   echo osmosis error
   exit 1
 fi
 
-if ! /usr/local/bin/osm2pgsql $OSM2PGSQL_PGOPTS --append --slim --hstore --cache 2048 --merc --prefix planet_osm --style <%= node[:path] %>/src/vector-datasource/osm2pgsql.style --verbose --expire-tiles 18-18 --expire-output "<%= node[:path] %>/var/expired-tiles/expired-tiles-$(date +%Y%m%d%H%M%S).list" --number-processes 1 "$OSM_DIFF" 1>&2 2>> "<%= node[:path] %>/var/log/osm2pgsql-update.log"; then
+if ! /usr/local/bin/osm2pgsql $OSM2PGSQL_PGOPTS --append --slim --hstore --cache 2048 --merc --prefix planet_osm --style <%= node[:path] %>/opt/vector-datasource/osm2pgsql.style --verbose --expire-tiles 18-18 --expire-output "<%= node[:tilequeue][:tiles][:expired_location] %>/expired-tiles-$(date +%Y%m%d%H%M%S).list" --number-processes 1 "$OSM_DIFF" 1>&2 2>> "<%= node[:path] %>/var/log/osm2pgsql/osm2pgsql-update.log"; then
   echo osm2pgsql error
   exit 2
 fi

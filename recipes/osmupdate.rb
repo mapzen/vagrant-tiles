@@ -26,6 +26,6 @@ cron 'osm update' do
   minute  node[:update][:cron][:minute]
   hour    node[:update][:cron][:hour]
   day     node[:update][:cron][:day]
-  command "#{node[:path]}/bin/osm-update.sh >>#{node[:path]}/var/log/osm-update.log 2>&1"
+  command "#{node[:path]}/bin/osm-update.sh >>#{node[:path]}/var/log/osm2pgsql/osm-update.log 2>&1"
   user    'vagrant'
 end

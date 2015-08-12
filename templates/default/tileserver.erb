@@ -1,0 +1,26 @@
+upstream unicorn_tileserver {
+  server unix:<%= node[:tileserver][:run_path] %>/gunicorn.socket fail_timeout=0;
+}
+
+server {
+  listen <%= node[:tileserver][:port] %>;
+
+  log_format custom '[$time_local] '
+                    '"$request" $status $body_bytes_sent '
+                    '"$http_user_agent"';
+  access_log /var/log/nginx/tileserver-access.log custom;
+
+  location /osm/tilejson {
+    root <%= node[:tileserver][:tilejson][:path] %>;
+  }
+
+  location /osm {
+    rewrite ^/osm/(.*) /$1 break;
+    proxy_pass http://unicorn_tileserver;
+  }
+
+  location / {
+    return 404 "Not Found";
+  }
+
+}
