@@ -5,7 +5,7 @@ backend nginx_cache {
   .port = "<%= node[:nginx][:port] %>";
 }
 
-backend tilestache {
+backend tileserver {
   .host = "<%= node[:ipaddress] %>";
   .port = "<%= node[:tileserver][:port] %>";
 }
@@ -22,7 +22,7 @@ sub vcl_backend_fetch {
   if (bereq.retries == 0) {
     set bereq.backend = nginx_cache;
   } else {
-    set bereq.backend = tilestache;
+    set bereq.backend = tileserver;
   }
 }
 
@@ -36,7 +36,7 @@ sub vcl_backend_response {
   if (bereq.retries == 0) {
     set beresp.http.X-Served-By = "tile-cache";
   } else {
-    set beresp.http.X-Served-By = "tilestache";
+    set beresp.http.X-Served-By = "tileserver";
   }
   if (beresp.status == 500 || beresp.status == 503) {
     set beresp.ttl = 1s;
