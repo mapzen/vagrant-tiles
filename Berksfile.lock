@@ -20,11 +20,11 @@ DEPENDENCIES
   sudo
   tilequeue
     git: git://github.com/mapzen/chef-tilequeue.git
-    revision: f8f543763d156ef765afdd1033b16a163008a67d
+    revision: a1e232b07b9706d91a09b8ad77e0ff99070e22c1
     ref: master
   tileserver
     git: git://github.com/mapzen/chef-tileserver.git
-    revision: b3cdab915b70f0c4e04ba93c5c9a814d42e29001
+    revision: b64c02792f4f79c4dc4539bd711fb87a91b1beb7
     ref: master
   vagrant-tiles
     path: .
@@ -33,7 +33,7 @@ DEPENDENCIES
 GRAPH
   7-zip (1.0.2)
     windows (>= 1.2.2)
-  apt (2.7.0)
+  apt (2.8.2)
   ark (0.9.0)
     7-zip (>= 0.0.0)
     windows (>= 0.0.0)
@@ -93,7 +93,7 @@ GRAPH
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
   sudo (2.7.2)
-  tilequeue (0.0.15)
+  tilequeue (0.1.0)
     apt (>= 0.0.0)
     git (>= 0.0.0)
     python (>= 0.0.0)

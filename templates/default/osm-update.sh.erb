@@ -34,7 +34,7 @@ if ! /usr/local/bin/osmosis --read-replication-interval workingDirectory=<%= nod
   exit 1
 fi
 
-if ! /usr/local/bin/osm2pgsql $OSM2PGSQL_PGOPTS --append --slim --hstore --cache 2048 --merc --prefix planet_osm --style <%= node[:path] %>/opt/vector-datasource/osm2pgsql.style --verbose --expire-tiles 18-18 --expire-output "<%= node[:tilequeue][:tiles][:expired_location] %>/expired-tiles-$(date +%Y%m%d%H%M%S).list" --number-processes 1 "$OSM_DIFF" 1>&2 2>> "<%= node[:path] %>/var/log/osm2pgsql/osm2pgsql-update.log"; then
+if ! /usr/local/bin/osm2pgsql $OSM2PGSQL_PGOPTS --append --slim --hstore --cache 2048 --merc --prefix planet_osm --style <%= node[:git][:vector_datasource][:path] %>/osm2pgsql.style --verbose --expire-tiles 18-18 --expire-output "<%= node[:tilequeue][:tiles][:expired_location] %>/expired-tiles-$(date +%Y%m%d%H%M%S).list" --number-processes 1 "$OSM_DIFF" 1>&2 2>> "<%= node[:path] %>/var/log/osm2pgsql/osm2pgsql-update.log"; then
   echo osm2pgsql error
   exit 2
 fi

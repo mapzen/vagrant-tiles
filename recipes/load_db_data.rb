@@ -15,7 +15,7 @@ end
 bash 'run-osm2pgsql-to-import-data' do
   code <<-EOH
     export PGPASSWORD='#{node[:pg][:password]}'
-    /usr/local/bin/osm2pgsql -U #{node[:pg][:user]} -d #{node[:pg][:dbname]} -H localhost --slim --hstore --cache 2048 --merc --prefix planet_osm --style #{node[:path]}/opt/vector-datasource/osm2pgsql.style --verbose --number-processes 1 #{node[:path]}/var/pbf/#{node[:pbf][:name]} 2>&1 >#{node[:path]}/var/log/osm2pgsql/osm-initial-import.log
+    /usr/local/bin/osm2pgsql -U #{node[:pg][:user]} -d #{node[:pg][:dbname]} -H localhost --slim --hstore --cache 2048 --merc --prefix planet_osm --style #{node[:git][:vector_datasource][:path]}/osm2pgsql.style --verbose --number-processes 1 #{node[:path]}/var/pbf/#{node[:pbf][:name]} 2>&1 >#{node[:path]}/var/log/osm2pgsql/osm-initial-import.log
   EOH
 end
 
@@ -27,7 +27,7 @@ bash 'import vector-datasource data' do
     for i in *.zip; do unzip $i; done
     ./shp2pgsql.sh | psql #{pgopts}
   EOH
-  cwd "#{node[:path]}/opt/vector-datasource/data"
+  cwd "#{node[:git][:vector_datasource][:path]}/data"
 end
 
 bash 'import additional data' do
@@ -54,7 +54,7 @@ bash 'import additional data' do
 end
 
 bash 'perform sql updates' do
-  cwd "#{node[:path]}/opt/vector-datasource/data"
+  cwd "#{node[:git][:vector_datasource][:path]}/data"
   code <<-EOH
     export PGPASSWORD='#{node[:pg][:password]}'
     ./perform-sql-updates.sh #{pgopts}

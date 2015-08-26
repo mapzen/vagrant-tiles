@@ -81,8 +81,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     'recipe[redis::install_from_package]',
 
+    'recipe[tilequeue]',
     'recipe[tilequeue::processor]',
-    'recipe[tilequeue::tilediff]',
+    'recipe[tilequeue::intersect]',
     'recipe[vagrant-tiles::seed]',
 
     'recipe[vagrant-tiles::osmupdate]',
