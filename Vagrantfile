@@ -65,6 +65,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     'recipe[python]',
 
     'recipe[vagrant-tiles::setup_python_dateutil]',
+    'recipe[vagrant-tiles::setup_tileinit]',
 
     'recipe[vagrant-tiles::setup_paths]',
 
