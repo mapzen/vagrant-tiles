@@ -5,7 +5,10 @@ This will set up a vagrant image with all the tile components that the Mapzen ve
 ## Prerequisites
 
 * vagrant
+* chef
+* berkshelf (available in the [chef development kit](https://downloads.chef.io/chef-dk/))
 * vagrant omnibus plugin (`vagrant plugin install vagrant-omnibus`)
+* vagrant berkshelf plugin (`vagrant plugin install vagrant-berkshelf`)
 
 ## Configuration
 
