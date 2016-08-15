@@ -1,4 +1,8 @@
-# vagrant-tiles
+# Deprecated
+
+Note that this repository is deprecated and is not being maintained.
+
+## vagrant-tiles
 
 This will set up a vagrant image with all the tile components that the Mapzen vector tile service uses running in a single vm. This is not meant to be production ready, but merely a demonstration of how the various pieces of an OpenStreetMap vector tile service can fit together.
 
